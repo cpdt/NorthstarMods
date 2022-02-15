@@ -300,5 +300,9 @@ Press Yes if you agree to this. This choice can be changed in the mods menu at a
 		"SHOW_ALL" "All"
 		"SHOW_ONLY_ENABLED" "Only Enabled"
 		"SHOW_ONLY_DISABLED" "Only Disabled"
+
+		// In-game chat
+		"HUD_CHAT_WHISPER_PREFIX" "[WHISPER]"
+		"HUD_CHAT_SERVER_PREFIX" "[SERVER]"
 	}
 }
