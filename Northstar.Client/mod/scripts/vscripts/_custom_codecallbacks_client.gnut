@@ -68,10 +68,12 @@ void function CHudChat_ProcessMessageStartThread(int playerIndex, string message
 void function CHudChat_OnReceivedSayTextMessageCallback(int fromPlayerIndex, string message, bool isTeam, bool isDead, int messageType)
 {
     entity fromPlayer = null
+    string fromPlayerName = ""
 
     if (fromPlayerIndex >= 0 && fromPlayerIndex < GetPlayerArray().len())
     {
-        fromPlayer = GetPlayerArray()[fromPlayerIndex]
+        fromPlayer = GetEntByIndex(fromPlayerIndex + 1)
+        fromPlayerName = fromPlayer.GetPlayerName()
     }
 
     if (messageType == 0 || messageType == 1)
@@ -79,7 +81,7 @@ void function CHudChat_OnReceivedSayTextMessageCallback(int fromPlayerIndex, str
         ClClient_MessageStruct localMessage
         localMessage.message = message
         localMessage.player = fromPlayer
-        localMessage.playerName = fromPlayer.GetPlayerName()
+        localMessage.playerName = fromPlayerName
         localMessage.isTeam = isTeam
         localMessage.isDead = isDead
         localMessage.isWhisper = false
@@ -93,7 +95,7 @@ void function CHudChat_OnReceivedSayTextMessageCallback(int fromPlayerIndex, str
         ClClient_MessageStruct localMessage
         localMessage.message = message
         localMessage.player = fromPlayer
-        localMessage.playerName = fromPlayer.GetPlayerName()
+        localMessage.playerName = fromPlayerName
         localMessage.isTeam = isTeam
         localMessage.isDead = isDead
         localMessage.isWhisper = true
